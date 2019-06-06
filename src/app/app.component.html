@@ -1,0 +1,13 @@
+<div [ngClass]="{true: 'tracker', false: 'home'}[content.url === '/tracker']" class="body">
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+    <div class="churroDiv">
+        <div *ngIf="content.url !== '/tracker'" class="content">
+            <span id="whyAnchor" class="anchor"></span>
+            <app-why id="why"></app-why>
+            <span class="anchor" id="howToAnchor"></span>
+            <app-how-to id="howTo"></app-how-to>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>

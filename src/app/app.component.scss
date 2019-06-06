@@ -1,0 +1,31 @@
+.home {
+    width: 100%;
+    background-image: url('/assets/img/stats.png');
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    .churroDiv {
+        position: relative;
+        top: 100vh;
+    }
+}
+
+.tracker {
+    width: 100%;
+    background-image: url('/assets/img/escheresque.png');
+    background-repeat: repeat;
+    position: absolute;
+    height: 100%;
+    .churroDiv {
+        position: absolute;
+        top: 100vh;
+        width: 99vw;
+    }
+}
+
+.anchor {
+    display: block;
+    visibility: hidden;
+    height: 5rem;
+    margin-top: -5rem;
+}

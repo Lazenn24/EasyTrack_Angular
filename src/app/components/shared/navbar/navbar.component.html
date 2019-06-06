@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark ">
+    <a class="navbar-brand" [ngClass]="{true: 'text-dark'}[content.path() === '/tracker']" [routerLink]="['/home']">{{ title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <div *ngIf="content.path() != '/tracker'" class="ifNotTracker">
+                <li class="nav-item">
+                    <a class="nav-link" href="#whyAnchor">¿Por qué?</a>
+                </li>
+                <li class="nav-item separator">
+                    <a class="nav-link" href="#howToAnchor">Como empezar</a>
+                </li>
+                <div class="dropdown-divider"></div>
+            </div>
+            <div class="user">
+                <li *ngIf="!auth.isAuthenticated()" class="nav-item">
+                    <a class="nav-link" (click)="login()">Iniciar sesión</a>
+                </li>
+                <li *ngIf="auth.isAuthenticated()" class="nav-item">
+                    <a [ngClass]="{true: 'text-dark'}[content.path() === '/tracker']" routerLink="/tracker" class="nav-link">Tracker</a>
+                    <a [ngClass]="{true: 'text-dark'}[content.path() === '/tracker']" (click)="salir()" class="nav-link">Cerrar sesión</a>
+                </li>
+            </div>
+        </ul>
+    </div>
+</nav>

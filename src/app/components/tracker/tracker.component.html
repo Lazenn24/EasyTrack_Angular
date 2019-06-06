@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row">
+        <div class="newItem col-md-6 col-sm-12">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control input" aria-describedby="help" placeholder="URL">
+                    <small id="help" class="form-text text-muted">Introduce la URL completa del producto</small>
+                    <input type="text" class="form-control input" aria-describedby="help" placeholder="Nombre">
+                    <small id="help" class="form-text text-muted">Introduce el nombre que quieres que tenga el producto</small>
+                </div>
+
+                <button id="submit" type="submit" class="btn btn-outline-dark">Empezar a seguir</button>
+                <button type="button" (click)='getPrice()'>BORRRRAR</button>
+            </form>
+        </div>
+        <div class="itemList col-md-6 col-sm-12">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio actual</th>
+                            <th scope="col">Precio más bajo</th>
+                            <th scope="col">Precio más alto</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td class="itemName">Mark</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td class="delete"><i class="fas fa-times cross"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td class="itemName">Pancracio</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td class="delete"><i class="fas fa-times cross"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td class="itemName">Larry</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td class="delete"><i class="fas fa-times cross"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td class="itemName">Larry</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td class="delete"><i class="fas fa-times cross"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td class="itemName">Larry</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td>90</td>
+                            <td class="delete"><i class="fas fa-times cross"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="chart-container col-sm-12">
+            <canvas id="chart" baseChart width="200" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+        </div>
+    </div>
+</div>

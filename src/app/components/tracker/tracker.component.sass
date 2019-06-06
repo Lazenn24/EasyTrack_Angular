@@ -1,0 +1,49 @@
+.container
+    margin-top: 9rem
+
+    .input
+        width: 78%
+        background-color: transparent
+        border: none
+        border-bottom: 0.1rem solid #95a5a6
+        border-radius: 0
+        box-shadow: none
+        outline: none
+
+    #submit
+        border-radius: 0
+
+    .itemList
+
+        .my-custom-scrollbar
+            position: relative
+            height: 15rem
+            width: 40rem
+            overflow: scroll
+            scrollbar-width: none
+            -ms-overflow-style: none
+            &::-webkit-scrollbar 
+                width: 0px
+                background:transparent
+
+            table
+
+                td:not(.itemName)
+                    text-align: right
+                td
+                    cursor: pointer
+
+                
+            
+            
+
+
+        .table-wrapper-scroll-y
+            display: block
+
+
+    .chart-container
+        top: 10vh
+        position: relative
+        height: 50vh
+        width: 100vh
