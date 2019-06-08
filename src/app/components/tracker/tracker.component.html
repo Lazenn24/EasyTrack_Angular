@@ -3,14 +3,13 @@
         <div class="newItem col-md-6 col-sm-12">
             <form>
                 <div class="form-group">
-                    <input type="text" class="form-control input" aria-describedby="help" placeholder="URL">
-                    <small id="help" class="form-text text-muted">Introduce la URL completa del producto</small>
-                    <input type="text" class="form-control input" aria-describedby="help" placeholder="Nombre">
-                    <small id="help" class="form-text text-muted">Introduce el nombre que quieres que tenga el producto</small>
+                    <input type="text" class="form-control input" #url aria-describedby="help" placeholder="URL">
+                    <small [ngClass]="{true: 'text-danger', false: 'text-muted'}[errorUrl]" id="helpUrl" class="form-text">{{ urlText }}</small>
+                    <input type="text" #nombre class="form-control input" aria-describedby="help" placeholder="Nombre">
+                    <small [ngClass]="{true: 'text-danger', false: 'text-muted'}[errorName]" id="helpName" class="form-text">{{ help }}</small>
                 </div>
 
-                <button id="submit" type="submit" class="btn btn-outline-dark">Empezar a seguir</button>
-                <button type="button" (click)='getPrice()'>BORRRRAR</button>
+                <button id="submit" type="button" (click)="getPriceTag(url.value, nombre.value)" class="btn btn-outline-dark">Empezar a seguir</button>
             </form>
         </div>
         <div class="itemList col-md-6 col-sm-12">
@@ -18,54 +17,22 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th class="col-id" scope="col">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Precio actual</th>
                             <th scope="col">Precio más bajo</th>
                             <th scope="col">Precio más alto</th>
-                            <th scope="col">Eliminar</th>
+                            <th class="col-delete" scope="col">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td class="itemName">Mark</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td class="delete"><i class="fas fa-times cross"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td class="itemName">Pancracio</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td class="delete"><i class="fas fa-times cross"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td class="itemName">Larry</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td class="delete"><i class="fas fa-times cross"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td class="itemName">Larry</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td class="delete"><i class="fas fa-times cross"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td class="itemName">Larry</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td>90</td>
-                            <td class="delete"><i class="fas fa-times cross"></i></td>
+                        <tr *ngFor="let item of items; index as i">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td (click)='getChart(item.url)' class="itemName"><a [href]='item.url'>{{item.name}}</a></td>
+                            <td (click)='getChart(item.url)'>{{ item.currentPrice }}</td>
+                            <td (click)='getChart(item.url)'>{{ item.minPrice }}</td>
+                            <td (click)='getChart(item.url)'>{{ item.maxPrice }}</td>
+                            <td (click)='getChart(item.url)' class="delete"><i (click)="deleteItem(item.name)" class="fas fa-times cross"></i></td>
                         </tr>
                     </tbody>
                 </table>
@@ -74,8 +41,8 @@
     </div>
 
     <div class="row">
-        <div class="chart-container col-sm-12">
-            <canvas id="chart" baseChart width="200" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+        <div class="chart-container col-sm-12 my-5">
+            <canvas id="myCanvas">{{ chart }}</canvas>
         </div>
     </div>
 </div>

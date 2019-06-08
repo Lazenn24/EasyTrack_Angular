@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import * as $ from 'jquery';
+
+
 
 
 @Component({
@@ -14,10 +17,36 @@ export class HomeComponent implements OnInit {
 
   public title = 'EasyTrack';
 
-  constructor() { }
+  @Output() homeLoaded: EventEmitter<string>;
+
+  constructor() {
+    this.homeLoaded = new EventEmitter(); }
 
   ngOnInit() {
-    this.width = window.screen.width;
+    $(document).ready(function() {
+        $(window).scroll(function() {
+          if ($(document).scrollTop() > 30) {
+            $('nav').addClass('navbar-scrolled');
+            $('nav').addClass('navbar-light');
+            $('nav').removeClass('navbar-dark');
+            $('.nav-link').css('color', 'black');
+          } else {
+            $('nav').removeClass('navbar-scrolled');
+            $('nav').removeClass('navbar-light');
+            $('nav').addClass('navbar-dark');
+            $('.nav-link').css('color', 'white');
+          }
+        });
+
+      });
+  }
+
+  scrollToWhy() {
+    $('#whyAnchor')[0].scrollIntoView();
+  }
+
+  scrollToHowTo() {
+    $('#howToAnchor')[0].scrollIntoView();
   }
 
 }

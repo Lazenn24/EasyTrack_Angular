@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
 
 import { AuthService } from '../../../services/auth.service';
@@ -25,28 +25,7 @@ export class NavbarComponent implements OnInit {
   public title = 'EasyTrack';
   public auth: AuthService = this.auth0;
 
-  ngOnInit() {
-  console.log(this.location.path());
-
-  if (this.location.path() !== '/tracker') {
-      $(document).ready(function() {
-        $(window).scroll(function() {
-          if ($(document).scrollTop() > 30) {
-            $('nav').addClass('navbar-scrolled');
-            $('nav').addClass('navbar-light');
-            $('nav').removeClass('navbar-dark');
-            $('.nav-link').css('color', 'black');
-          } else {
-            $('nav').removeClass('navbar-scrolled');
-            $('nav').removeClass('navbar-light');
-            $('nav').addClass('navbar-dark');
-            $('.nav-link').css('color', 'white');
-          }
-        });
-
-      });
-    }
-  }
+  ngOnInit() {}
 
   login() {
     this.auth.login();
@@ -54,6 +33,19 @@ export class NavbarComponent implements OnInit {
 
   salir() {
     this.auth.logout();
+  }
+
+  // Para hacer el scroll a los elementos, no funciona con ID, y con <a> se pierde la sesion por la API.
+  scrollToWhy(){
+    $('#whyAnchor')[0].scrollIntoView();
+  }
+
+  scrollToHowTo(){
+    $('#howToAnchor')[0].scrollIntoView();
+  }
+
+  scrollToTop() {
+    $('#home')[0].scrollIntoView();
   }
 
   // isAuthenticated() {

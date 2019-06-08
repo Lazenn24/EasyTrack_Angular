@@ -14,10 +14,10 @@
         border-radius: 0
 
     .itemList
-
+        position: relative
         .my-custom-scrollbar
-            position: relative
-            height: 15rem
+            position: absolute
+            height: 20rem
             width: 40rem
             overflow: scroll
             scrollbar-width: none
@@ -27,11 +27,22 @@
                 background:transparent
 
             table
+                table-layout: fixed
+
+                thead
+                    tr
+                        .col-id
+                            width: 2rem
+
+                        .col-delete
+                            width: 5rem
 
                 td:not(.itemName)
                     text-align: right
                 td
                     cursor: pointer
+                th
+                    white-space: nowrap
 
                 
             

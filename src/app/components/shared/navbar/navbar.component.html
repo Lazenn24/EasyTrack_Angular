@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark ">
-    <a class="navbar-brand" [ngClass]="{true: 'text-dark'}[content.path() === '/tracker']" [routerLink]="['/home']">{{ title }}</a>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <button class="navbar-brand" [ngClass]="{true: 'text-dark'}[content.path() === '/tracker']" (click)="scrollToTop()" [routerLink]="['/home']">{{ title }}</button>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,10 +7,10 @@
         <ul class="navbar-nav">
             <div *ngIf="content.path() != '/tracker'" class="ifNotTracker">
                 <li class="nav-item">
-                    <a class="nav-link" href="#whyAnchor">¿Por qué?</a>
+                    <button class="nav-link" (click)="scrollToWhy()">¿Por qué?</button>
                 </li>
                 <li class="nav-item separator">
-                    <a class="nav-link" href="#howToAnchor">Como empezar</a>
+                    <button class="nav-link" (click)="scrollToHowTo()">Como empezar</button>
                 </li>
                 <div class="dropdown-divider"></div>
             </div>

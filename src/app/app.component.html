@@ -3,7 +3,7 @@
     <router-outlet></router-outlet>
     <div class="churroDiv">
         <div *ngIf="content.url !== '/tracker'" class="content">
-            <span id="whyAnchor" class="anchor"></span>
+            <span #whyAnchor id="whyAnchor" class="anchor"></span>
             <app-why id="why"></app-why>
             <span class="anchor" id="howToAnchor"></span>
             <app-how-to id="howTo"></app-how-to>
