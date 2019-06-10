@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <button class="navbar-brand" [ngClass]="{true: 'text-dark'}[content.path() === '/tracker']" (click)="scrollToTop()" [routerLink]="['/home']">{{ title }}</button>
+    <button class="navbar-brand" [class.text-dark]="content.path() === '/tracker'" (click)="scrollToTop()" [routerLink]="['/home']">{{ title }}</button>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,8 +19,8 @@
                     <a class="nav-link" (click)="login()">Iniciar sesión</a>
                 </li>
                 <li *ngIf="auth.isAuthenticated()" class="nav-item">
-                    <a [ngClass]="{true: 'text-dark'}[content.path() === '/tracker']" routerLink="/tracker" class="nav-link">Tracker</a>
-                    <a [ngClass]="{true: 'text-dark'}[content.path() === '/tracker']" (click)="salir()" class="nav-link">Cerrar sesión</a>
+                    <a [class.text-dark]="content.path() === '/tracker'" routerLink="/tracker" class="nav-link">Tracker</a>
+                    <a [class.text-dark]="content.path() === '/tracker'" (click)="salir()" class="nav-link">Cerrar sesión</a>
                 </li>
             </div>
         </ul>

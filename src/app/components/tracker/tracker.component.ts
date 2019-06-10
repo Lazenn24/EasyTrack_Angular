@@ -46,6 +46,8 @@ export class TrackerComponent implements OnInit, AfterViewInit {
         }
       }
     } else {
+      console.log("en component la url es " + url);
+      
       this.errorName = false;
       this.errorUrl = false;
       this.urlText = 'Introduce la URL completa del producto';

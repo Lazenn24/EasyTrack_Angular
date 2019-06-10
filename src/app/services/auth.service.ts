@@ -15,7 +15,7 @@ export class AuthService {
     clientID: 'QuEhoOf8DpMQSAONVHABF2fRQmdkUL1f',
     domain: 'easytrack.eu.auth0.com',
     responseType: 'token id_token',
-    redirectUri: 'http://localhost:4200/tracker',
+    redirectUri: 'http://localhost:4200/',
     scope: 'openid email profile'
   });
 
@@ -42,9 +42,9 @@ export class AuthService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.localLogin(authResult);
-        this.router.navigate(['/tracker']);
+        this.router.navigate(['/']);
       } else if (err) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
         console.log(err);
       }
     });

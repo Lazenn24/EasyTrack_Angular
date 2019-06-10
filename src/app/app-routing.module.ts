@@ -12,7 +12,7 @@ const routes: Routes = [
 ];
 
 const routerOptions: ExtraOptions = {
-  useHash: false,
+  useHash: true,
   anchorScrolling: 'enabled'
 };
 

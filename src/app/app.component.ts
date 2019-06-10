@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TrackerService } from './services/tracker.service';
 import { interval } from 'rxjs';
-
-
+import { Location } from '@angular/common';
 
 
 
@@ -16,7 +15,7 @@ export class AppComponent implements OnInit {
 
   public title = 'EasyTracking';
 
-  public content = this.router;
+  public content = this.location;
 
 
   // La logica es correcta en principio, pero Amazon bloquea tantas peticiones detras de un Captcha
@@ -39,7 +38,8 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private router: Router,
-              private trackerService: TrackerService) {
+              private trackerService: TrackerService,
+              private location: Location) {
   }
 
 }

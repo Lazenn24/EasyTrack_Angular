@@ -4,9 +4,9 @@
             <form>
                 <div class="form-group">
                     <input type="text" class="form-control input" #url aria-describedby="help" placeholder="URL">
-                    <small [ngClass]="{true: 'text-danger', false: 'text-muted'}[errorUrl]" id="helpUrl" class="form-text">{{ urlText }}</small>
+                    <small [class.text-danger]='errorUrl' [class.text-muted]='!errorUrl' id="helpUrl" class="form-text">{{ urlText }}</small>
                     <input type="text" #nombre class="form-control input" aria-describedby="help" placeholder="Nombre">
-                    <small [ngClass]="{true: 'text-danger', false: 'text-muted'}[errorName]" id="helpName" class="form-text">{{ help }}</small>
+                    <small [class.text-danger]='errorName' [class.text-muted]='!errorName' id="helpName" class="form-text">{{ help }}</small>
                 </div>
 
                 <button id="submit" type="button" (click)="getPriceTag(url.value, nombre.value)" class="btn btn-outline-dark">Empezar a seguir</button>

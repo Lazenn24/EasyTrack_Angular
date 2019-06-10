@@ -1,8 +1,8 @@
-<div [ngClass]="{true: 'tracker', false: 'home'}[content.url === '/tracker']" class="body">
+<div [class.tracker]='content.path() === "/tracker"' [class.home]='content.path() !== "/tracker"' class="body">
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
     <div class="churroDiv">
-        <div *ngIf="content.url !== '/tracker'" class="content">
+        <div *ngIf="content.path() !== '/tracker'" class="content">
             <span #whyAnchor id="whyAnchor" class="anchor"></span>
             <app-why id="why"></app-why>
             <span class="anchor" id="howToAnchor"></span>
